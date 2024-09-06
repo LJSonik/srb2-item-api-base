@@ -1,0 +1,15 @@
+Important
+=========
+Remove all instances of synced random functions in visual tickers etc
+
+Normal
+======
+N/A
+
+Fixes
+=====
+- Adjust food template action duration when ItemDef.eatDuration is changed
+
+Optimisations
+=====
+N/A

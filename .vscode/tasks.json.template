@@ -1,0 +1,45 @@
+// This is a template for basic VS Code tasks useful for testing this project directly from within VS Code.
+// It assumes you already have ItemAPI available as a folder add-on on your hard drive,
+// either from its Git repository or from the manually extracted PK3.
+//
+// If you want to use these tasks, just copy this file as "tasks.json",
+// replace the placeholder paths with whatever is appropriate for you,
+// then tweak as you need.
+//
+// Once this is done, you can quickly test the project in SRB2
+// by pressing ctrl+shift+B and selecting the "Run" task.
+
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Run",
+            "type": "process",
+            "group": "build",
+            "command": "C:/path/to/your/SRB2/folder/srb2win.exe",
+            "args": [
+                "-warp",
+                "1",
+
+                "-folder",
+                "C:/path/to/ItemAPI/PK3",
+                "C:/path/to/ItemAPI-Base/PK3",
+            ],
+            "options": {
+                "cwd": "C:/path/to/your/SRB2/folder"
+            },
+            "presentation": {
+                "reveal": "silent"
+            }
+        },
+        {
+            "label": "Build",
+            "type": "process",
+            "group": "build",
+            "command": "Build.bat",
+            "presentation": {
+                "reveal": "silent"
+            }
+        }
+    ]
+}
