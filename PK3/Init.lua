@@ -2,6 +2,7 @@ dofile "Libraries/ljrequire.lua"
 
 for _, filename in ipairs{
 	"ActionAnimations/Shake.lua",
+	"ActionAnimations/Crumbs.lua",
 
 	"Core.lua",
 	"PlantGrowth.lua",
