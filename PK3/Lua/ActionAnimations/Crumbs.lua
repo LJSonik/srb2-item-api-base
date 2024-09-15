@@ -13,9 +13,11 @@ itemapi.addActionAnimation("crumbs", {
 		local crumb = P_SpawnMobj(mo.x, mo.y, mo.z, MT_ITEMAPI_PARTICLE)
 		table.insert(crumbs, crumb)
 
+		crumb.flags = $ & ~(MF_NOCLIP|MF_NOCLIPHEIGHT|MF_NOGRAVITY)
+		crumb.fuse = 10*TICRATE
+
 		crumb.momx, crumb.momy = itemapi.randomPointInCircle(0, 0, 4*FU)
 		crumb.momz = 4*FU
-		crumb.flags = $ & ~MF_NOGRAVITY
 
 		crumb.sprite, crumb.frame = SPR_ICRU, 0
 		crumb.color = params.color
