@@ -1,10 +1,26 @@
 itemapi.addItemTemplate("food", function(def)
+	itemapi.parseSugarArray(def, "eatAnimations", "eatAnimation", true)
+
+	if not def.eatAnimations then
+		def.eatAnimations = {
+			{
+				type = "crumbs",
+				color = def.foodCrumbColor or SKINCOLOR_RED,
+				frequency = TICRATE/16
+			},
+			{
+				type = "shake"
+			},
+		}
+	end
+
 	return {
 		name = "food",
 
 		action1 = {
 			name = "eat",
 			duration = def.eatDuration,
+			animations = def.eatAnimations,
 
 			action = function(p)
 				itemapi.eat(p, def.nutrition)
