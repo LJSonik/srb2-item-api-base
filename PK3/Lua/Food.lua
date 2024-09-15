@@ -1,3 +1,6 @@
+freeslot("sfx_iteat")
+
+
 itemapi.addItemTemplate("food", function(def)
 	itemapi.parseSugarArray(def, "eatAnimations", "eatAnimation", true)
 
@@ -8,9 +11,8 @@ itemapi.addItemTemplate("food", function(def)
 				color = def.foodCrumbColor or SKINCOLOR_RED,
 				frequency = TICRATE/16
 			},
-			{
-				type = "shake"
-			},
+			{ type="shake" },
+			{ type="sound", sound=sfx_iteat },
 		}
 	end
 
