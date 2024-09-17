@@ -21,7 +21,7 @@ itemapi.addItem("blue_berry", {
 	foodCrumbColor = SKINCOLOR_BLUE,
 
 	mobjSprite = SPR_IFOD,
-	mobjFrame = D
+	mobjFrame = E
 })
 
 itemapi.addItem("leaves", {
