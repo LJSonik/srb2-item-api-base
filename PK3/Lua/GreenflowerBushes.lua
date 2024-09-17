@@ -66,7 +66,7 @@ itemapi.addItem("bush", {
 	seed = "bush_seed",
 
 	mobjType = MT_BUSH,
-	mobjSprite = SPR_BUS1,
+	mobjSprite = SPR_BUS2,
 	mobjFrame = A,
 
 	groundAction1 = {
