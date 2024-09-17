@@ -2,7 +2,7 @@ freeslot("sfx_iteat")
 
 
 itemapi.addItemTemplate("food", function(def)
-	itemapi.parseSugarArray(def, "eatAnimations", "eatAnimation", true)
+	itemapi.parseSugarArray(def, "eatAnimations", "eatAnimation")
 
 	if not def.eatAnimations then
 		def.eatAnimations = {
