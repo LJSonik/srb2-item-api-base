@@ -29,6 +29,10 @@ itemapi.addItemTemplate("food", function(def)
 			action = function(p)
 				itemapi.eat(p, def.nutrition)
 				itemapi.uncarryItem(p)
+
+				if def.eatenItem then
+					itemapi.carryItem(p, def.eatenItem)
+				end
 			end,
 		}
 	}
