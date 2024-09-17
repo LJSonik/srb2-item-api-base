@@ -35,7 +35,7 @@ itemapi.addItemTemplate("plant_seed", function()
 				local def = itemapi.itemDefs[itemapi.getMainCarriedItemType(p)]
 				local plantID = def.groups["plant_seed"]
 				if not itemapi.placeItem(p, plantID) then return end
-				itemapi.uncarryItem(p)
+				itemapi.smartUncarryItem(p)
 			end
 		}
 	}

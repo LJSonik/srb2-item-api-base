@@ -142,7 +142,7 @@ itemapi.addItem("campfire", {
 
 		action = function(p, campfire, _, fuelDef)
 			addFuel(campfire, fuelDef.groups["fuel"])
-			itemapi.uncarryItem(p)
+			itemapi.smartUncarryItem(p)
 		end
 	},
 
@@ -152,7 +152,7 @@ itemapi.addItem("campfire", {
 
 		action = function(p, campfire, _, foodDef)
 			itemapi.campfire_addItemToSpit(campfire, foodDef.index)
-			itemapi.uncarryItem(p)
+			itemapi.smartUncarryItem(p)
 		end
 	},
 

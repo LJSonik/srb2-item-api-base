@@ -11,7 +11,7 @@ itemapi.addItem("orange_flower", {
 		action = function(p)
 			local n = P_RandomRange(1, 2)
 			if not p.itemapi_inventory:add("orange_flower_seed", n) then return end
-			itemapi.uncarryItem(p)
+			itemapi.smartUncarryItem(p)
 		end
 	}
 })
