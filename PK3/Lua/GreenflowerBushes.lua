@@ -53,19 +53,19 @@ itemapi.addItem("berry_bush", {
 
 		action = function(p, bush)
 			if not p.itemapi_inventory:add("berry", 4) then return end
-			itemapi.spawnGroundItem(bush.x, bush.y, bush.z, "bush")
+			itemapi.spawnGroundItem(bush.x, bush.y, bush.z, "leafed_berry_bush")
 			P_RemoveMobj(bush)
 		end
 	}
 })
 
-itemapi.addItem("bush", {
-	name = "bush",
+itemapi.addItem("leafed_berry_bush", {
+	name = "leafed berry bush",
 	template = "growing_plant",
 
 	groups = { growing_plant="berry_bush" },
 	growthTime = 3*60*TICRATE,
-	seed = "bush_seed",
+	seed = "berry_bush_seed",
 
 	mobjType = MT_BUSH,
 	mobjSprite = SPR_BUS2,
@@ -78,19 +78,19 @@ itemapi.addItem("bush", {
 
 		action = function(p, bush)
 			if not p.itemapi_inventory:add("leaves") then return end
-			itemapi.spawnGroundItem(bush.x, bush.y, bush.z, "leafless_bush")
+			itemapi.spawnGroundItem(bush.x, bush.y, bush.z, "leafless_berry_bush")
 			P_RemoveMobj(bush)
 		end
 	}
 })
 
-itemapi.addItem("leafless_bush", {
-	name = "leafless bush",
+itemapi.addItem("leafless_berry_bush", {
+	name = "leafless berry bush",
 	template = "growing_plant",
 
-	groups = { growing_plant="bush" },
+	groups = { growing_plant="leafed_berry_bush" },
 	growthTime = 3*60*TICRATE,
-	seed = "bush_seed",
+	seed = "berry_bush_seed",
 
 	mobjSprite = SPR_ITEM,
 	mobjFrame = K,
@@ -102,19 +102,19 @@ itemapi.addItem("leafless_bush", {
 
 		action = function(p, bush)
 			if not p.itemapi_inventory:add("log") then return end
-			itemapi.spawnGroundItem(bush.x, bush.y, bush.z, "bush_trunk")
+			itemapi.spawnGroundItem(bush.x, bush.y, bush.z, "berry_bush_trunk")
 			P_RemoveMobj(bush)
 		end
 	}
 })
 
-itemapi.addItem("bush_trunk", {
-	name = "bush trunk",
+itemapi.addItem("berry_bush_trunk", {
+	name = "berry bush trunk",
 	template = "growing_plant",
 
-	groups = { growing_plant="leafless_bush" },
+	groups = { growing_plant="leafless_berry_bush" },
 	growthTime = 3*60*TICRATE,
-	seed = "bush_seed",
+	seed = "berry_bush_seed",
 
 	mobjSprite = SPR_ITEM,
 	mobjFrame = J,
@@ -126,18 +126,18 @@ itemapi.addItem("bush_trunk", {
 
 		action = function(p, bush)
 			local n = P_RandomRange(1, 2)
-			if not p.itemapi_inventory:add("bush_seed", n) then return end
+			if not p.itemapi_inventory:add("berry_bush_seed", n) then return end
 			P_RemoveMobj(bush)
 		end
 	}
 })
 
-itemapi.addItem("bush_seed", {
-	name = "bush seed",
+itemapi.addItem("berry_bush_seed", {
+	name = "berry bush seed",
 	template = "plant_seed",
 	stackable = 10,
 
-	groups = { plant_seed="bush_trunk" },
+	groups = { plant_seed="berry_bush_trunk" },
 
 	mobjSprite = SPR_ITEM,
 	mobjFrame = D
