@@ -26,7 +26,7 @@ itemapi.addItemTemplate("leafed_berry_bush", function(def)
 			animation = "shake",
 
 			action = function(p, bush)
-				if not p.itemapi_inventory:add(def.leaves) then return end
+				if not p.itemapi_inventory:add("leaves") then return end
 				itemapi.spawnGroundItem(bush.x, bush.y, bush.z, def.leaflessBush)
 				P_RemoveMobj(bush)
 			end
@@ -75,19 +75,6 @@ itemapi.addItemTemplate("berry_bush_trunk", function(def)
 end)
 
 
-itemapi.addItem("blue_berry", {
-	name = "blueberry",
-	template = "food",
-	stackable = 4,
-
-	nutrition = 60*TICRATE,
-	eatDuration = TICRATE/2,
-	foodCrumbColor = SKINCOLOR_BLUE,
-
-	mobjSprite = SPR_IFOD,
-	mobjFrame = E
-})
-
 itemapi.addItem("leaves", {
 	name = "leaves",
 	stackable = 8,
@@ -135,7 +122,6 @@ itemapi.addItem("leafed_berry_bush", {
 
 	groups = { growing_plant="berry_bush" },
 	seed = "berry_bush_seed",
-	leaves = "leaves",
 	leaflessBush = "leafless_berry_bush",
 
 	mobjType = MT_BUSH,
@@ -172,6 +158,78 @@ itemapi.addItem("berry_bush_seed", {
 	stackable = 10,
 
 	groups = { plant_seed="berry_bush_trunk" },
+
+	mobjSprite = SPR_ITEM,
+	mobjFrame = D
+})
+
+
+itemapi.addItem("blueberry", {
+	name = "blueberry",
+	template = "food",
+	stackable = 4,
+
+	nutrition = 120*TICRATE,
+	eatDuration = TICRATE/2,
+	foodCrumbColor = SKINCOLOR_BLUE,
+
+	mobjSprite = SPR_IFOD,
+	mobjFrame = E
+})
+
+itemapi.addItem("blueberry_bush", {
+	name = "blueberry bush",
+	template = "berry_bush",
+
+	berry = "blueberry",
+	leafedBush = "leafed_blueberry_bush",
+
+	mobjType = MT_BLUEBERRYBUSH,
+	mobjSprite = SPR_BUS3,
+	mobjFrame = A
+})
+
+itemapi.addItem("leafed_blueberry_bush", {
+	name = "leafed blueberry bush",
+	template = "leafed_berry_bush",
+
+	groups = { growing_plant="blueberry_bush" },
+	seed = "blueberry_bush_seed",
+	leaflessBush = "leafless_blueberry_bush",
+
+	mobjSprite = SPR_BUS2,
+	mobjFrame = A
+})
+
+itemapi.addItem("leafless_blueberry_bush", {
+	name = "leafless blueberry bush",
+	template = "leafless_berry_bush",
+
+	groups = { growing_plant="leafed_blueberry_bush" },
+	seed = "blueberry_bush_seed",
+	trunk = "blueberry_bush_trunk",
+
+	mobjSprite = SPR_ITEM,
+	mobjFrame = K
+})
+
+itemapi.addItem("blueberry_bush_trunk", {
+	name = "blueberry bush trunk",
+	template = "berry_bush_trunk",
+
+	groups = { growing_plant="leafless_blueberry_bush" },
+	seed = "blueberry_bush_seed",
+
+	mobjSprite = SPR_ITEM,
+	mobjFrame = J
+})
+
+itemapi.addItem("blueberry_bush_seed", {
+	name = "blueberry bush seed",
+	template = "plant_seed",
+	stackable = 10,
+
+	groups = { plant_seed="blueberry_bush_trunk" },
 
 	mobjSprite = SPR_ITEM,
 	mobjFrame = D
