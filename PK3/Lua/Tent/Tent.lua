@@ -61,7 +61,7 @@ itemapi.addItem("tent", {
 
 itemapi.addCraftingRecipe(nil, {
 	item = "tent",
-	ingredients = { { "leaves", 10 } }
+	ingredients = { { "leaves", 50 } }
 })
 
 

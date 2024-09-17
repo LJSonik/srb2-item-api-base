@@ -77,15 +77,27 @@ end)
 
 itemapi.addItem("leaves", {
 	name = "leaves",
-	stackable = 8,
+	stackable = 20,
+	groups = { fuel=15*TICRATE },
 
 	mobjSprite = SPR_ITEM,
 	mobjFrame = G,
 
 	action1 = {
-		name = "admire",
+		name = "F***ING LEAVES",
+		duration = TICRATE/4,
+
+		animation = {
+			type = "crumbs",
+			sprites = "ICRU:0-2",
+			color = SKINCOLOR_GREEN,
+			scale = 4*FU,
+			frequency = TICRATE/32
+		},
+
 		action = function(p)
-			CONS_Printf(p, "WOA!! u gota... leaves!!!")
+			itemapi.smartUncarryItem(p)
+			CONS_Printf(p, "You get rid of the f***ing leaves.")
 		end
 	}
 })
