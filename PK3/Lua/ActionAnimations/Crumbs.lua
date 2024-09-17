@@ -1,7 +1,20 @@
 freeslot("SPR_ICRU")
 
 itemapi.addActionAnimation("crumbs", {
-	start = function(mo, state)
+	start = function(_, state, params)
+		params.sprites = $ or params.sprite
+		if type(params.sprites) == "string" then
+			params.sprites = { params.sprites }
+		end
+
+		params.parsedSprites = {}
+		for _, s in ipairs(params.sprites) do
+			local extraSprites = itemapi.parseSpriteFramePairs(s)
+			for _, extraSprite in ipairs(extraSprites) do
+				table.insert(params.parsedSprites, { extraSprite[1], extraSprite[2] })
+			end
+		end
+
 		state.crumbs = itemapi.spawnParticlePool()
 	end,
 
@@ -19,10 +32,11 @@ itemapi.addActionAnimation("crumbs", {
 		crumb.momx, crumb.momy = itemapi.randomPointInCircle(0, 0, 4*FU)
 		crumb.momz = 4*FU
 
-		crumb.sprite, crumb.frame = SPR_ICRU, 0
-		crumb.color = params.color
-	end,
+		local spritePair = itemapi.randomElement(params.parsedSprites)
+		crumb.sprite, crumb.frame = spritePair[1], spritePair[2]
+		crumb.color = params.color or SKINCOLOR_NONE
 
-	stop = function(mo, state)
-	end
+		local scale = params.scale or FU
+		crumb.spritexscale, crumb.spriteyscale = scale, scale
+	end,
 })

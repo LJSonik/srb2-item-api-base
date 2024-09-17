@@ -8,7 +8,9 @@ itemapi.addItemTemplate("food", function(def)
 		def.eatAnimations = {
 			{
 				type = "crumbs",
+				sprites = "ICRU:0-2",
 				color = def.foodCrumbColor or SKINCOLOR_RED,
+				scale = 2*FU,
 				frequency = TICRATE/16
 			},
 			{ type="shake" },
