@@ -41,6 +41,7 @@ itemapi.addItem("roasted_meat", {
 
 	nutrition = 5*60*TICRATE,
 	eatDuration = 3*TICRATE,
+	foodCrumbColor = SKINCOLOR_YOGURT,
 
 	mobjSprite = SPR_IFOD,
 	mobjFrame = C,

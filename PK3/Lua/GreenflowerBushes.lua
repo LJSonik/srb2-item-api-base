@@ -5,6 +5,7 @@ itemapi.addItem("berry", {
 
 	nutrition = 60*TICRATE,
 	eatDuration = TICRATE/2,
+	foodCrumbColor = SKINCOLOR_RED,
 
 	mobjSprite = SPR_IFOD,
 	mobjFrame = D
@@ -17,6 +18,7 @@ itemapi.addItem("blue_berry", {
 
 	nutrition = 60*TICRATE,
 	eatDuration = TICRATE/2,
+	foodCrumbColor = SKINCOLOR_BLUE,
 
 	mobjSprite = SPR_IFOD,
 	mobjFrame = D
