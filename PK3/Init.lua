@@ -7,6 +7,7 @@ for _, filename in ipairs{
 
 	"Core.lua",
 	"GlobalLight.lua",
+	"DayNightCycle.lua",
 	"PlantGrowth.lua",
 	"Food.lua",
 	"Log.lua",
