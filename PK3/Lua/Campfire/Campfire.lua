@@ -86,9 +86,8 @@ itemapi.addItem("campfire", {
 	},
 
 	onSpawn = function(campfire)
-		campfire.fuel = 0
+		campfire.fuel = 3*60*TICRATE
 		campfire.flames = {}
-		campfire.fuel = 4*60*TICRATE --- !!!! DBG
 	end,
 
 	onDespawn = function(campfire)
