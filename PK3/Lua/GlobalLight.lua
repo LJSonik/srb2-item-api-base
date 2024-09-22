@@ -1,7 +1,10 @@
 ---@class itemapi.GlobalLight : itemapi.Module
 ---@field vars itemapi.GlobalLight.Vars
-local gl = itemapi.addModule()
-itemapi.GlobalLight = gl
+itemapi.GlobalLight = itemapi.addModule()
+
+
+---@class itemapi.GlobalLight
+local gl = itemapi.GlobalLight
 
 
 ---@class itemapi.GlobalLight.Vars
