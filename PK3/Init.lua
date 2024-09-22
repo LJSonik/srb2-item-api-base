@@ -14,7 +14,8 @@ for _, filename in ipairs{
 	"GreenflowerFlowers.lua",
 	"GreenflowerBushes.lua",
 	"Trees.lua",
-	"Animals.lua",
+	"Flickies.lua",
+	"Meat.lua",
 
 	"Campfire/Campfire.lua",
 	"Tent/Tent.lua",
