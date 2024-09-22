@@ -5,6 +5,8 @@ for _, filename in ipairs{
 	"ActionAnimations/Crumbs.lua",
 	"ActionAnimations/Sound.lua",
 
+	"ItemTemplates/Flower.lua",
+
 	"Core.lua",
 	"GlobalLight.lua",
 	"DayNightCycle.lua",

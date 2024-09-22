@@ -1,19 +1,13 @@
 itemapi.addItem("orange_flower", {
+	template = "flower",
 	name = "orange flower",
 	stackable = 2,
+
+	seed = "orange_flower_seed",
 
 	mobjType = MT_GFZFLOWER1,
 	mobjSprite = SPR_FWR1,
 	mobjFrame = A,
-
-	action1 = {
-		name = "destroy and get seeds",
-		action = function(p)
-			local n = P_RandomRange(1, 2)
-			if not p.itemapi_inventory:add("orange_flower_seed", n) then return end
-			itemapi.smartUncarryItem(p)
-		end
-	}
 })
 
 itemapi.addItem("growing_orange_flower", {
