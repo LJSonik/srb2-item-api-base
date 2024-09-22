@@ -2,6 +2,7 @@ itemapi.addItem("orange_flower", {
 	template = "flower",
 	name = "orange flower",
 	stackable = 2,
+	groups = { fuel=5*TICRATE },
 
 	seed = "orange_flower_seed",
 
