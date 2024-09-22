@@ -104,7 +104,7 @@ itemapi.addItem("campfire", {
 		ticker = function(campfire, deltaTime)
 			setFuel(campfire, max(campfire.fuel - deltaTime, 0))
 
-			if campfire.spitSlots then
+			if campfire.fuel > 0 and campfire.spitSlots then
 				itemapi.campfire_updateSpit(campfire, deltaTime)
 			end
 		end
