@@ -30,7 +30,7 @@ itemapi.addItem("chest", {
 	model = "chest",
 
 	onPlace = function(chest)
-		chest.inventory = itemapi.Inventory()
+		chest.inventory = itemapi.Inventory(16, 4)
 	end,
 
 	groundAction1 = {
