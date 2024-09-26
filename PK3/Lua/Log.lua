@@ -15,8 +15,8 @@ itemapi.addModel("log", {
 	{ "splat", SPR_ILOG, A, -16,   0, 32, angle=0, vangle=0 },
 	{ "paper", SPR_ILOG, A,  16,   0,  0, angle=0 },
 	{ "paper", SPR_ILOG, A, -16,   0,  0, angle=0 },
-	{ "paper", SPR_ILOG, A,   0,  64,  0, angle=90, sx=FU/4 },
-	{ "paper", SPR_ILOG, A,   0, -64,  0, angle=90, sx=FU/4 },
+	{ "paper", SPR_ILOG, B,   0,  64,  0, angle=90 },
+	{ "paper", SPR_ILOG, B,   0, -64,  0, angle=90 },
 })
 
 itemapi.addItem("log", {
