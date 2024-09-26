@@ -30,14 +30,16 @@ itemapi.addItem("chest", {
 	model = "chest",
 
 	onPlace = function(chest)
-		chest.inventory = itemapi.Inventory(16, 4)
+		chest.itemapi_data = $ or {
+			inventory = itemapi.Inventory(16, 4)
+		}
 	end,
 
 	groundAction1 = {
 		name = "open",
 
 		action = function(p, chest)
-			itemapi.openContainer(p, chest.inventory)
+			itemapi.openContainer(p, chest.itemapi_data.inventory)
 		end
 	},
 })
