@@ -5,13 +5,13 @@ for _, filename in ipairs{
 	"ActionAnimations/Crumbs.lua",
 	"ActionAnimations/Sound.lua",
 
+	"ItemTemplates/PlantGrowth.lua",
+	"ItemTemplates/Food.lua",
 	"ItemTemplates/Flower.lua",
 
 	"Core.lua",
 	"GlobalLight.lua",
 	"DayNightCycle.lua",
-	"PlantGrowth.lua",
-	"Food.lua",
 	"Log.lua",
 	"GreenflowerFlowers.lua",
 	"BotanicSerenityFlowers.lua",
