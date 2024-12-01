@@ -11,8 +11,8 @@ mobjinfo[MT_ITEMAPI_CHEST] = {
 states[S_ITEMAPI_CHEST] = { SPR_NULL }
 
 itemapi.addModel("chest", {
-	{ "splat", SPR_ICHE, D, -24, 0,  0, angle=0, vangle=0 }, -- Top
-	{ "splat", SPR_ICHE, D, -24, 0, 48, angle=0, vangle=0 }, -- Bottom
+	{ "splat", SPR_ICHE, D, -24, 0, 48, angle=0, vangle=0 }, -- Top
+	{ "splat", SPR_ICHE, D, -24, 0,  0, angle=0, vangle=0 }, -- Bottom
 	{ "paper", SPR_ICHE, A, -24, 0, 0, angle=0 }, -- Front
 	{ "paper", SPR_ICHE, B, 24, 0, 0, angle=0 }, -- Back
 	{ "paper", SPR_ICHE, C, 0, -48, 0, angle=90 }, -- Side
