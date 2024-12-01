@@ -24,6 +24,7 @@ for _, filename in ipairs{
 	"Campfire/Campfire.lua",
 	"Tent/Tent.lua",
 	"Chest/Chest.lua",
+	"Rowboat/Rowboat.lua",
 } do
 	dofile(filename)
 end
