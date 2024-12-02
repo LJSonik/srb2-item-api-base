@@ -116,11 +116,18 @@ addHook("PlayerMsg", function(source, msgType, _, msg)
 	if msgType ~= 0 then return end -- Only normal messages
 	if not source.itemapi_infoBubbles then return end
 
+	-- Only one chat bubble at a time
+	local oldBubble = source.itemapi_infoBubbles["chat"]
+	if oldBubble then
+		itemapi.stopInfoBubble(source, oldBubble)
+	end
+
 	local fontDef = itemapi.spriteFontDefs["normal"]
 
 	msg = itemapi.wordWrapSpriteText(msg, fontDef, 256*FU)
 
 	itemapi.startInfoBubble(source, {
+		id = "chat",
 		text = msg,
 		duration = 10*TICRATE + #msg * TICRATE / 20
 	})
