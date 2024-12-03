@@ -78,6 +78,11 @@ local function updatePassengers(boat)
 		local mo = boat.passengers[seatIndex]
 		if not mo then continue end
 
+		if not mo.valid then
+			boat.passengers[seatIndex] = nil
+			continue
+		end
+
 		local x, y, z = itemapi.getGroundItemSpotPosition(boat, seatIndex)
 		P_MoveOrigin(mo, x, y, z)
 
@@ -149,7 +154,7 @@ end
 
 
 itemapi.addItem("rowboat", {
-	name = "boat",
+	name = "rowboat",
 	storable = false,
 
 	mobjType = MT_ITEMAPI_ROWBOAT,
