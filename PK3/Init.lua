@@ -15,6 +15,7 @@ for _, filename in ipairs{
 	"ChatMessages.lua",
 	"Log.lua",
 	"GreenflowerFlowers.lua",
+	"CastleEggmanPlants.lua",
 	"BotanicSerenityFlowers.lua",
 	"GreenflowerBushes.lua",
 	"Trees.lua",
