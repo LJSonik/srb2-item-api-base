@@ -112,18 +112,24 @@ local function updateDriving(boat)
 	local maxTurnAcc = 16*FU
 	local turnAcc = maxTurnAcc * cmd.sidemove / -50
 
-	local maxTurnSpeed = 1024*FU
+	local maxTurnSpeed = 2048*FU
 	if abs(boat.turnSpeed) < maxTurnSpeed then
 		boat.turnSpeed = itemapi.minMax(boat.turnSpeed + turnAcc, -maxTurnSpeed, maxTurnSpeed)
 	end
 
+	local momx, momy = itemapi.rotatePointAroundPivot(boat.momx, boat.momy, 0, 0, -boat.angle)
+
+	-- Calculate acceleration
 	local maxAcc = FU/8
 	local acc = maxAcc * cmd.forwardmove / 50
 
-	local momx, momy = itemapi.rotatePointAroundPivot(boat.momx, boat.momy, 0, 0, -boat.angle)
+	-- Double if braking
+	if momx ~= 0 and (acc < 0) ~= (momx < 0) then
+		acc = acc * 2
+	end
 
-	-- Acceleration
-	local maxSpeed = 48*FU
+	-- Apply acceleration
+	local maxSpeed = 64*FU
 	if abs(momx) < maxSpeed then
 		momx = itemapi.minMax(momx + acc, -maxSpeed, maxSpeed)
 	end
