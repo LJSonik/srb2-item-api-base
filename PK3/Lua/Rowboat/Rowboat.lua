@@ -51,7 +51,7 @@ local function updateMovement(boat)
 		local itemDef = itemapi.getItemDefFromMobj(boat)
 		for seatIndex = 1, #itemDef.spots do
 			local mo = boat.passengers[seatIndex]
-			if mo then
+			if (mo and mo.valid) then
 				mo.angle = $ + boat.turnSpeed
 			end
 		end
