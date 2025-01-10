@@ -1,6 +1,9 @@
 freeslot("S_ITEMAPI_GFZTREE_LEAFLESS")
 states[S_ITEMAPI_GFZTREE_LEAFLESS] = { SPR_ITRE, A }
 
+freeslot("S_ITEMAPI_GFZTREE_TRUNK")
+states[S_ITEMAPI_GFZTREE_TRUNK] = { SPR_ITRE, B }
+
 
 itemapi.addItem("greenflower_berry_tree", {
 	name = "Greenflower berry tree",
@@ -12,7 +15,7 @@ itemapi.addItem("greenflower_berry_tree", {
 
 	groundAction = {
 		name = "pick berries",
-		duration = 3*TICRATE,
+		duration = 5*TICRATE,
 		animation = "shake",
 
 		action = function(p, tree)
@@ -38,7 +41,7 @@ itemapi.addItem("greenflower_tree", {
 
 	groundAction = {
 		name = "pick leaves",
-		duration = 3*TICRATE,
+		duration = 10*TICRATE,
 		animation = "shake",
 
 		action = function(p, tree)
@@ -64,12 +67,50 @@ itemapi.addItem("leafless_greenflower_tree", {
 
 	groundAction = {
 		name = "pick wood",
-		duration = 10*TICRATE,
+		duration = 20*TICRATE,
 		animation = "shake",
 
 		action = function(p, tree)
-			if not p.itemapi_inventory:add("log", 5) then return end
+			if not p.itemapi_inventory:add("log", 10) then return end
+			itemapi.spawnGroundItem(tree.x, tree.y, tree.z, "greenflower_tree_trunk")
 			P_RemoveMobj(tree)
 		end
 	}
+})
+
+itemapi.addItem("greenflower_tree_trunk", {
+	name = "Greenflower tree trunk",
+	template = "growing_plant",
+
+	groups = { growing_plant="leafless_greenflower_tree" },
+	growthTime = 3*60*TICRATE,
+	seed = "greenflower_tree_seed",
+
+	mobjType = MT_GFZTREE,
+	mobjState = S_ITEMAPI_GFZTREE_TRUNK,
+	mobjSprite = SPR_ITRE,
+	mobjFrame = B,
+
+	groundAction1 = {
+		name = "destroy and get seeds",
+		duration = 5*TICRATE,
+		animation = "shake",
+
+		action = function(p, tree, def)
+			local n = P_RandomRange(1, 2)
+			if not p.itemapi_inventory:add(def.seed, n) then return end
+			P_RemoveMobj(tree)
+		end
+	}
+})
+
+itemapi.addItem("greenflower_tree_seed", {
+	name = "Greenflower tree seed",
+	template = "plant_seed",
+	stackable = 10,
+
+	groups = { plant_seed="greenflower_tree_trunk" },
+
+	mobjSprite = SPR_ITEM,
+	mobjFrame = D
 })
