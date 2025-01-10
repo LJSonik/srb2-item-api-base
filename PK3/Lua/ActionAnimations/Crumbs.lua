@@ -23,7 +23,9 @@ itemapi.addActionAnimation("crumbs", {
 
 		local crumbs = state.crumbs
 
-		local crumb = P_SpawnMobj(mo.x, mo.y, mo.z, MT_ITEMAPI_PARTICLE)
+		local z = mo.z + FixedMul(params.offsetZ or 0, mo.scale)
+
+		local crumb = P_SpawnMobj(mo.x, mo.y, z, MT_ITEMAPI_PARTICLE)
 		table.insert(crumbs, crumb)
 
 		crumb.flags = $ & ~(MF_NOCLIP|MF_NOCLIPHEIGHT|MF_NOGRAVITY)
