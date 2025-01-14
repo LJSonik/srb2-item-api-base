@@ -42,6 +42,18 @@ itemapi.addItem("chest", {
 			itemapi.openContainer(p, chest.itemapi_data.inventory)
 		end
 	},
+
+	groundAction2 = {
+		name = "store",
+		requiredCarriedItem = "any",
+
+		action = function(p, chest)
+			local itemType = itemapi.getMainCarriedItemType(p)
+			if chest.itemapi_data.inventory:add(itemType) then
+				itemapi.smartUncarryItem(p)
+			end
+		end
+	},
 })
 
 
