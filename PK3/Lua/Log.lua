@@ -24,6 +24,12 @@ itemapi.addItem("log", {
 	stackable = 2,
 	groups = { fuel=60*TICRATE, workbench_ingredient=true },
 
+	description = [[
+		A wooden log.
+		Can be used in crafting
+		or as fuel.
+	]],
+
 	mobjType = MT_ITEMAPI_LOG,
 	mobjScale = FU/2,
 	mobjSprite = SPR_ITEM,

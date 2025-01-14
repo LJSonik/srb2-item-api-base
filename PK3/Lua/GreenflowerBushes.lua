@@ -108,6 +108,12 @@ itemapi.addItem("berry", {
 	template = "food",
 	stackable = 4,
 
+	description = [[
+		A red, juicy berry.
+		Not very nourishing,
+		but quite tasty.
+	]],
+
 	nutrition = 60*TICRATE,
 	eatDuration = TICRATE/2,
 	foodCrumbColor = SKINCOLOR_RED,

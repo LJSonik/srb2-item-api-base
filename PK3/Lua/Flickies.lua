@@ -82,6 +82,11 @@ itemapi.addItem("fish", {
 	template = "flicky",
 	name = "fish",
 
+	description = [[
+		For some reason, it turns
+		into chicken once cooked.
+	]],
+
 	mobjSprite = SPR_FL08,
 	mobjFrame = A,
 	mobjType = MT_FLICKY_08
@@ -163,6 +168,11 @@ itemapi.addItem("spider", {
 	template = "flicky",
 	name = "spider",
 
+	description = [[
+		For some reason, it turns
+		into chicken once cooked.
+	]],
+
 	mobjSprite = SPR_FS01,
 	mobjFrame = A,
 	mobjType = MT_SECRETFLICKY_01
@@ -171,6 +181,11 @@ itemapi.addItem("spider", {
 itemapi.addItem("bat", {
 	template = "flicky",
 	name = "bat",
+
+	description = [[
+		For some reason, it turns
+		into chicken once cooked.
+	]],
 
 	mobjSprite = SPR_FS02,
 	mobjFrame = A,
