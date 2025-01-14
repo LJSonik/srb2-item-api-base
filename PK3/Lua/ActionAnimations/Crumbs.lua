@@ -1,24 +1,30 @@
 freeslot("SPR_ICRU")
 
+local function parseParams(params)
+	params.sprites = $ or params.sprite
+	if type(params.sprites) == "string" then
+		params.sprites = { params.sprites }
+	end
+
+	params.parsedSprites = {}
+	for _, s in ipairs(params.sprites) do
+		local extraSprites = itemapi.parseSpriteFramePairs(s)
+		for _, extraSprite in ipairs(extraSprites) do
+			table.insert(params.parsedSprites, { extraSprite[1], extraSprite[2] })
+		end
+	end
+end
+
 itemapi.addActionAnimation("crumbs", {
 	start = function(_, state, params)
-		params.sprites = $ or params.sprite
-		if type(params.sprites) == "string" then
-			params.sprites = { params.sprites }
-		end
-
-		params.parsedSprites = {}
-		for _, s in ipairs(params.sprites) do
-			local extraSprites = itemapi.parseSpriteFramePairs(s)
-			for _, extraSprite in ipairs(extraSprites) do
-				table.insert(params.parsedSprites, { extraSprite[1], extraSprite[2] })
-			end
-		end
-
 		state.crumbs = itemapi.spawnParticlePool()
 	end,
 
 	tick = function(mo, state, params)
+		if not params.parsedSprites then
+			parseParams(params)
+		end
+
 		if leveltime % (params.frequency or 1) ~= 0 then return end
 
 		local crumbs = state.crumbs
