@@ -36,6 +36,7 @@ itemapi.addItemTemplate("food", function(def)
 					itemapi.smartUncarryItem(p)
 				end
 			end,
-		}
+		},
+		action2 = def.extraAction
 	}
 end)

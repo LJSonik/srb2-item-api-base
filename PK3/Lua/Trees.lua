@@ -5,8 +5,45 @@ freeslot("S_ITEMAPI_GFZTREE_TRUNK")
 states[S_ITEMAPI_GFZTREE_TRUNK] = { SPR_ITRE, B }
 
 
-itemapi.addItem("greenflower_berry_tree", {
-	name = "Greenflower berry tree",
+itemapi.addItem("red_apple", {
+	name = "red apple",
+	template = "food",
+	stackable = 2,
+
+	nutrition = 180*TICRATE,
+	eatDuration = 2*TICRATE,
+	foodCrumbColor = SKINCOLOR_RED,
+
+	mobjSprite = SPR_IFOD,
+	mobjFrame = F,
+
+	extraAction = {
+		name = "try to get seed",
+		duration = 3*TICRATE,
+
+		animations = {
+			{
+				type = "crumbs",
+				sprites = "ICRU:0-2",
+				color = SKINCOLOR_RED,
+				scale = FU,
+				frequency = TICRATE/16
+			},
+			{ type="shake" },
+		},
+
+		action = function(p)
+			if not p.itemapi_inventory:canAdd("greenflower_red_apple_tree_seed") then return end
+			if P_RandomChance(FU/5) then
+				p.itemapi_inventory:add("greenflower_red_apple_tree_seed")
+			end
+			itemapi.smartUncarryItem(p)
+		end
+	}
+})
+
+itemapi.addItem("greenflower_red_apple_tree", {
+	name = "Greenflower red apple tree",
 	carriable = false,
 
 	mobjType = MT_GFZBERRYTREE,
@@ -14,12 +51,12 @@ itemapi.addItem("greenflower_berry_tree", {
 	mobjFrame = B,
 
 	groundAction = {
-		name = "pick berries",
+		name = "pick apples",
 		duration = 5*TICRATE,
 		animation = "shake",
 
 		actionV2 = function(action, tree, actors)
-			if not itemapi.giveItemStackToMultiplePlayers(actors, "berry", 10) then return end
+			if not itemapi.giveItemStackToMultiplePlayers(actors, "red_apple", 5) then return end
 			itemapi.replaceGroundItem(tree, "greenflower_tree")
 		end
 	}
@@ -28,10 +65,10 @@ itemapi.addItem("greenflower_berry_tree", {
 itemapi.addItem("greenflower_tree", {
 	template = "growing_plant",
 
-	name = "Greenflower tree",
+	name = "Greenflower red apple tree",
 	carriable = false,
 
-	groups = { growing_plant="greenflower_berry_tree" },
+	groups = { growing_plant="greenflower_red_apple_tree" },
 	growthTime = 5*60*TICRATE,
 
 	mobjType = MT_GFZTREE,
@@ -50,13 +87,13 @@ itemapi.addItem("greenflower_tree", {
 	}
 })
 
-itemapi.addItem("leafless_greenflower_tree", {
+itemapi.addItem("leafless_greenflower_red_apple_tree", {
 	template = "growing_plant",
 
-	name = "leafless Greenflower tree",
+	name = "leafless Greenflower red apple tree",
 	carriable = false,
 
-	groups = { growing_plant="greenflower_berry_tree" },
+	groups = { growing_plant="greenflower_red_apple_tree" },
 	growthTime = 5*60*TICRATE,
 
 	mobjType = MT_GFZTREE,
@@ -71,18 +108,18 @@ itemapi.addItem("leafless_greenflower_tree", {
 
 		actionV2 = function(action, tree, actors)
 			if not itemapi.giveItemStackToMultiplePlayers(actors, "log", 10) then return end
-			itemapi.replaceGroundItem(tree, "greenflower_tree_trunk")
+			itemapi.replaceGroundItem(tree, "greenflower_red_apple_tree_trunk")
 		end
 	}
 })
 
-itemapi.addItem("greenflower_tree_trunk", {
-	name = "Greenflower tree trunk",
+itemapi.addItem("greenflower_red_apple_tree_trunk", {
+	name = "Greenflower red apple tree trunk",
 	template = "growing_plant",
 
-	groups = { growing_plant="leafless_greenflower_tree" },
+	groups = { growing_plant="leafless_greenflower_red_apple_tree" },
 	growthTime = 5*60*TICRATE,
-	seed = "greenflower_tree_seed",
+	seed = "greenflower_red_apple_tree_seed",
 
 	mobjType = MT_GFZTREE,
 	mobjState = S_ITEMAPI_GFZTREE_TRUNK,
@@ -95,19 +132,18 @@ itemapi.addItem("greenflower_tree_trunk", {
 		animation = "shake",
 
 		action = function(p, tree, def)
-			local n = P_RandomRange(1, 2)
-			if not p.itemapi_inventory:add(def.seed, n) then return end
+			if not p.itemapi_inventory:add(def.seed) then return end
 			P_RemoveMobj(tree)
 		end
 	}
 })
 
-itemapi.addItem("greenflower_tree_seed", {
-	name = "Greenflower tree seed",
+itemapi.addItem("greenflower_red_apple_tree_seed", {
+	name = "Greenflower red apple tree seed",
 	template = "plant_seed",
 	stackable = 10,
 
-	groups = { plant_seed="greenflower_tree_trunk" },
+	groups = { plant_seed="greenflower_red_apple_tree_trunk" },
 
 	mobjSprite = SPR_ITEM,
 	mobjFrame = D
