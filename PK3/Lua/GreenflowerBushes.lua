@@ -78,7 +78,7 @@ end)
 itemapi.addItem("leaves", {
 	name = "leaves",
 	stackable = 20,
-	groups = { fuel=15*TICRATE },
+	groups = { fuel=15*TICRATE, workbench_ingredient=true },
 
 	mobjSprite = SPR_ITEM,
 	mobjFrame = G,

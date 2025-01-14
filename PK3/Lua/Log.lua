@@ -22,7 +22,7 @@ itemapi.addModel("log", {
 itemapi.addItem("log", {
 	name = "log",
 	stackable = 2,
-	groups = { fuel=60*TICRATE },
+	groups = { fuel=60*TICRATE, workbench_ingredient=true },
 
 	mobjType = MT_ITEMAPI_LOG,
 	mobjScale = FU/2,
