@@ -18,8 +18,8 @@ itemapi.addItem("greenflower_berry_tree", {
 		duration = 5*TICRATE,
 		animation = "shake",
 
-		action = function(p, tree)
-			if not p.itemapi_inventory:add("berry", 10) then return end
+		actionV2 = function(action, tree, actors)
+			if not itemapi.giveItemStackToMultiplePlayers(actors, "berry", 10) then return end
 			itemapi.spawnGroundItem(tree.x, tree.y, tree.z, "greenflower_tree")
 			P_RemoveMobj(tree)
 		end
@@ -33,7 +33,7 @@ itemapi.addItem("greenflower_tree", {
 	carriable = false,
 
 	groups = { growing_plant="greenflower_berry_tree" },
-	growthTime = 3*60*TICRATE,
+	growthTime = 5*60*TICRATE,
 
 	mobjType = MT_GFZTREE,
 	mobjSprite = SPR_TRE1,
@@ -44,8 +44,8 @@ itemapi.addItem("greenflower_tree", {
 		duration = 10*TICRATE,
 		animation = "shake",
 
-		action = function(p, tree)
-			if not p.itemapi_inventory:add("leaves", 5) then return end
+		actionV2 = function(action, tree, actors)
+			if not itemapi.giveItemStackToMultiplePlayers(actors, "leaves", 5) then return end
 			tree.state = S_ITEMAPI_GFZTREE_LEAFLESS
 		end
 	}
@@ -58,7 +58,7 @@ itemapi.addItem("leafless_greenflower_tree", {
 	carriable = false,
 
 	groups = { growing_plant="greenflower_berry_tree" },
-	growthTime = 3*60*TICRATE,
+	growthTime = 5*60*TICRATE,
 
 	mobjType = MT_GFZTREE,
 	mobjState = S_ITEMAPI_GFZTREE_LEAFLESS,
@@ -70,8 +70,8 @@ itemapi.addItem("leafless_greenflower_tree", {
 		duration = 20*TICRATE,
 		animation = "shake",
 
-		action = function(p, tree)
-			if not p.itemapi_inventory:add("log", 10) then return end
+		actionV2 = function(action, tree, actors)
+			if not itemapi.giveItemStackToMultiplePlayers(actors, "log", 10) then return end
 			itemapi.spawnGroundItem(tree.x, tree.y, tree.z, "greenflower_tree_trunk")
 			P_RemoveMobj(tree)
 		end
@@ -83,7 +83,7 @@ itemapi.addItem("greenflower_tree_trunk", {
 	template = "growing_plant",
 
 	groups = { growing_plant="leafless_greenflower_tree" },
-	growthTime = 3*60*TICRATE,
+	growthTime = 5*60*TICRATE,
 	seed = "greenflower_tree_seed",
 
 	mobjType = MT_GFZTREE,
