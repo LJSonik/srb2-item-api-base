@@ -7,8 +7,7 @@ itemapi.addItemTemplate("berry_bush", function(def)
 
 			action = function(p, bush)
 				if not p.itemapi_inventory:add(def.berry, 4) then return end
-				itemapi.spawnGroundItem(bush.x, bush.y, bush.z, def.leafedBush)
-				P_RemoveMobj(bush)
+				itemapi.replaceGroundItem(bush, def.leafedBush)
 			end
 		}
 	}
@@ -27,8 +26,7 @@ itemapi.addItemTemplate("leafed_berry_bush", function(def)
 
 			action = function(p, bush)
 				if not p.itemapi_inventory:add("leaves") then return end
-				itemapi.spawnGroundItem(bush.x, bush.y, bush.z, def.leaflessBush)
-				P_RemoveMobj(bush)
+				itemapi.replaceGroundItem(bush, def.leaflessBush)
 			end
 		}
 	}
@@ -47,8 +45,7 @@ itemapi.addItemTemplate("leafless_berry_bush", function(def)
 
 			action = function(p, bush)
 				if not p.itemapi_inventory:add("log") then return end
-				itemapi.spawnGroundItem(bush.x, bush.y, bush.z, def.trunk)
-				P_RemoveMobj(bush)
+				itemapi.replaceGroundItem(bush, def.trunk)
 			end
 		}
 	}

@@ -20,8 +20,7 @@ itemapi.addItem("greenflower_berry_tree", {
 
 		actionV2 = function(action, tree, actors)
 			if not itemapi.giveItemStackToMultiplePlayers(actors, "berry", 10) then return end
-			itemapi.spawnGroundItem(tree.x, tree.y, tree.z, "greenflower_tree")
-			P_RemoveMobj(tree)
+			itemapi.replaceGroundItem(tree, "greenflower_tree")
 		end
 	}
 })
@@ -72,8 +71,7 @@ itemapi.addItem("leafless_greenflower_tree", {
 
 		actionV2 = function(action, tree, actors)
 			if not itemapi.giveItemStackToMultiplePlayers(actors, "log", 10) then return end
-			itemapi.spawnGroundItem(tree.x, tree.y, tree.z, "greenflower_tree_trunk")
-			P_RemoveMobj(tree)
+			itemapi.replaceGroundItem(tree, "greenflower_tree_trunk")
 		end
 	}
 })

@@ -16,3 +16,15 @@ itemapi.addItem("oil_lamp", {
 	mobjSprite = SPR_OILL,
 	mobjFrame = A,
 })
+
+---@param mobj mobj_t
+---@param id itemapi.ItemType
+---@return mobj_t
+function itemapi.replaceGroundItem(mobj, id)
+	local newMobj = itemapi.spawnGroundItem(mobj.x, mobj.y, mobj.z, id)
+	newMobj.itemapi_data = mobj.itemapi_data
+
+	P_RemoveMobj(mobj)
+
+	return newMobj
+end

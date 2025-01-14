@@ -16,8 +16,7 @@ itemapi.addItemTemplate("growing_plant", function()
 
 				if age >= def.growthTime then
 					local grownID = def.groups["growing_plant"]
-					itemapi.spawnGroundItem(plant.x, plant.y, plant.z, grownID)
-					P_RemoveMobj(plant)
+					itemapi.replaceGroundItem(plant, grownID)
 				end
 			end
 		}
