@@ -63,8 +63,7 @@ itemapi.addItemTemplate("berry_bush_trunk", function(def)
 			animation = "shake",
 
 			action = function(p, bush)
-				local n = P_RandomRange(1, 2)
-				if not p.itemapi_inventory:add(def.seed, n) then return end
+				if not p.itemapi_inventory:add(def.seed) then return end
 				P_RemoveMobj(bush)
 			end
 		}
@@ -116,7 +115,31 @@ itemapi.addItem("berry", {
 	foodCrumbColor = SKINCOLOR_RED,
 
 	mobjSprite = SPR_IFOD,
-	mobjFrame = D
+	mobjFrame = D,
+
+	extraAction = {
+		name = "try to get seed",
+		duration = TICRATE,
+
+		animations = {
+			{
+				type = "crumbs",
+				sprites = "ICRU:0-2",
+				color = SKINCOLOR_RED,
+				scale = FU,
+				frequency = TICRATE/16
+			},
+			{ type="shake" },
+		},
+
+		action = function(p)
+			if not p.itemapi_inventory:canAdd("berry_bush_seed") then return end
+			if P_RandomChance(FU/4) then
+				p.itemapi_inventory:add("berry_bush_seed")
+			end
+			itemapi.smartUncarryItem(p)
+		end
+	}
 })
 
 itemapi.addItem("berry_bush", {
@@ -189,7 +212,31 @@ itemapi.addItem("blueberry", {
 	foodCrumbColor = SKINCOLOR_BLUE,
 
 	mobjSprite = SPR_IFOD,
-	mobjFrame = E
+	mobjFrame = E,
+
+	extraAction = {
+		name = "try to get seed",
+		duration = TICRATE,
+
+		animations = {
+			{
+				type = "crumbs",
+				sprites = "ICRU:0-2",
+				color = SKINCOLOR_BLUE,
+				scale = FU,
+				frequency = TICRATE/16
+			},
+			{ type="shake" },
+		},
+
+		action = function(p)
+			if not p.itemapi_inventory:canAdd("blueberry_bush_seed") then return end
+			if P_RandomChance(FU/4) then
+				p.itemapi_inventory:add("blueberry_bush_seed")
+			end
+			itemapi.smartUncarryItem(p)
+		end
+	}
 })
 
 itemapi.addItem("blueberry_bush", {
