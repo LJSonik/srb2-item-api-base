@@ -47,5 +47,6 @@ itemapi.addItem("chest", {
 
 itemapi.addCraftingRecipe(nil, {
 	item = "chest",
-	ingredients = { { "log", 5 } }
+	location = "workbench",
+	ingredients = { { "log", 10 } }
 })

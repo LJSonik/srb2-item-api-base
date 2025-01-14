@@ -212,7 +212,8 @@ end, MT_ITEMAPI_ROWBOAT)
 
 itemapi.addCraftingRecipe(nil, {
 	item = "rowboat",
-	ingredients = { { "log", 10 } }
+	location = "workbench",
+	ingredients = { { "log", 20 } }
 })
 
 

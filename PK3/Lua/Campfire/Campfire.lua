@@ -172,7 +172,7 @@ itemapi.addItem("campfire", {
 
 itemapi.addCraftingRecipe("campfire", {
 	item = "campfire",
-	ingredients = { { "log", 3 } }
+	ingredients = { { "log", 5 } }
 })
 
 
