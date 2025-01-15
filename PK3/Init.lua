@@ -1,6 +1,8 @@
 dofile "Libraries/ljrequire.lua"
 
 for _, filename in ipairs{
+	"SurfaceMaterials.lua",
+
 	"ActionAnimations/Shake.lua",
 	"ActionAnimations/Crumbs.lua",
 	"ActionAnimations/Sound.lua",
