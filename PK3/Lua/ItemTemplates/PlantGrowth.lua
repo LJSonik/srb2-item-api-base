@@ -23,7 +23,6 @@ itemapi.addItemTemplate("growing_plant", function()
 	}
 end)
 
-
 itemapi.addItemTemplate("plant_seed", function()
 	return {
 		name = "plant seed",
