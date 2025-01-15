@@ -55,10 +55,3 @@ itemapi.addItem("chest", {
 		end
 	},
 })
-
-
-itemapi.addCraftingRecipe(nil, {
-	item = "chest",
-	location = "workbench",
-	ingredients = { { "log", 10 } }
-})

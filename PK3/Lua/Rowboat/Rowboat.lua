@@ -210,11 +210,4 @@ addHook("TouchSpecial", function(boat, toucher)
 end, MT_ITEMAPI_ROWBOAT)
 
 
-itemapi.addCraftingRecipe(nil, {
-	item = "rowboat",
-	location = "workbench",
-	ingredients = { { "log", 20 } }
-})
-
-
 dofile "Rowboat/Models.lua"

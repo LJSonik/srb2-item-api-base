@@ -59,11 +59,5 @@ itemapi.addItem("tent", {
 })
 
 
-itemapi.addCraftingRecipe(nil, {
-	item = "tent",
-	ingredients = { { "leaves", 50 } }
-})
-
-
 dofile "Tent/Collision.lua"
 dofile "Tent/Models.lua"

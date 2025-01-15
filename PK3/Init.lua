@@ -27,6 +27,8 @@ for _, filename in ipairs{
 	"Chest/Chest.lua",
 	"Rowboat/Rowboat.lua",
 	"Workbench/Workbench.lua",
+
+	"CraftingRecipes.lua",
 } do
 	dofile(filename)
 end

@@ -183,10 +183,4 @@ itemapi.addItem("workbench", {
 })
 
 
-itemapi.addCraftingRecipe(nil, {
-	item = "workbench",
-	ingredients = { { "log", 10 } }
-})
-
-
 dofile "Workbench/Models.lua"

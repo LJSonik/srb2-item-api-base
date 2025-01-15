@@ -170,11 +170,6 @@ itemapi.addItem("campfire", {
 	},
 })
 
-itemapi.addCraftingRecipe("campfire", {
-	item = "campfire",
-	ingredients = { { "log", 5 } }
-})
-
 
 dofile "Campfire/Models.lua"
 dofile "Campfire/Flames.lua"
